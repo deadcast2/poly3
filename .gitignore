@@ -1,0 +1,77 @@
+# Build output directories
+build/
+debug/
+release/
+*.o
+*.d
+*.hex
+*.bin
+*.elf
+*.map
+*.lst
+
+# VSCode specific files
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+!.vscode/c_cpp_properties.json
+*.code-workspace
+
+# STM32CubeMX generated files
+.mxproject
+mx.scratch
+
+# Debug files
+*.su
+*.idb
+*.pdb
+
+# Backup files
+*.bak
+*.tmp
+*~
+*.swp
+*.swo
+
+# Operating System files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Binary and object files
+*.o
+*.ko
+*.obj
+*.elf
+*.lib
+*.la
+*.lo
+
+# Linker output
+*.ilk
+*.map
+*.exp
+
+# Debug files
+*.dSYM/
+*.su
+*.idb
+*.pdb
+
+# Kernel Module Compile Results
+*.mod*
+*.cmd
+.tmp_versions/
+modules.order
+Module.symvers
+Mkfile.old
+dkms.conf
+
+# Project specific ignores
+# Add any project-specific files or directories you want to ignore below
