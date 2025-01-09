@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="35 15 180 55">
+  <!-- 'poly' text in Geometric Sans -->
+  <text x="40" y="70" 
+        font-family="'Century Gothic', 'Futura', sans-serif" 
+        font-size="70" 
+        font-weight="normal" 
+        fill="#333333">poly</text>
+  
+  <!-- Bold '3' superscript -->
+  <text x="190" y="40" 
+        font-family="'Century Gothic', 'Futura', sans-serif" 
+        font-size="45" 
+        font-weight="bold" 
+        fill="#FF5733">3</text>
+</svg>
