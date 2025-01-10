@@ -8,6 +8,8 @@
 #include "stm32746g_discovery_sdram.h"
 
 void SystemClock_Config(void);
+void Draw_Line(int16_t x1, int16_t y1, int16_t x2, int16_t y2, uint16_t color);
+void Put_Pixel(int16_t x, int16_t y, uint16_t color);
 
 int main(void)
 {
@@ -21,11 +23,43 @@ int main(void)
   BSP_LCD_SetLayerWindow(0, 112, 40, 256, 192); // DS resolution
   BSP_LCD_SelectLayer(0);
   BSP_LCD_DisplayOn();
+  BSP_LCD_Clear(LCD_COLOR_BLACK);
+
+  Draw_Line(-20, -10, 20, 10, 0xF800 /* red */);
+  Draw_Line(-40, -20, -30, 20, 0x1F80 /* green */);
 
   while (1)
   {
     HAL_Delay(16); // Cap at ~60 FPS
   }
+}
+
+void Draw_Line(int16_t x1, int16_t y1, int16_t x2, int16_t y2, uint16_t color)
+{
+  if (x1 > x2)
+  {
+    int16_t temp = x2;
+    x2 = x1;
+    x1 = temp;
+  }
+
+  int32_t a = roundf((float32_t)(y2 - y1) / (x2 - x1));
+  int32_t y = y1;
+
+  for (int16_t x = x1; x <= x2; x++)
+  {
+    Put_Pixel(x, y, color);
+
+    y = y + a;
+  }
+}
+
+void Put_Pixel(int16_t x, int16_t y, uint16_t color)
+{
+  uint16_t sx = (256 / 2) + x;
+  uint16_t sy = (192 / 2) - y;
+
+  BSP_LCD_DrawPixel(sx, sy, color);
 }
 
 void SystemClock_Config(void)
